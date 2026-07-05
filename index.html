@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby Doll Makeover | Premium Beauty Salon in Sikar</title>
+<meta name="description" content="Baby Doll Makeover is Sikar's premium beauty destination for hair styling, bridal & party makeup, HD makeup, facials, waxing, threading, manicure, pedicure and nail art. Book your appointment on WhatsApp today.">
+<meta name="keywords" content="Baby Doll Makeover, beauty salon Sikar, bridal makeup Sikar, hair salon, HD makeup, nail art, facial, waxing, threading">
+<meta name="author" content="Baby Doll Makeover">
+<meta property="og:title" content="Baby Doll Makeover | Premium Beauty Salon">
+<meta property="og:description" content="Elegance. Hygiene. Expertise. Book your beauty appointment today.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   1. ROOT VARIABLES — Baby Doll Makeover brand palette
+   ========================================================================== */
+:root{
+  --blush:#f7e2e7;
+  --blush-deep:#f0c9d3;
+  --rose-gold:#b76e79;
+  --rose-gold-light:#d99aa6;
+  --cream:#fdf8f2;
+  --white:#ffffff;
+  --gold:#c9a15a;
+  --gold-soft:#e8d4a9;
+  --ink:#4a2f35;
+  --ink-soft:#7a5b61;
+  --shadow-soft: 0 10px 30px rgba(183,110,121,0.15);
+  --shadow-lift: 0 20px 45px rgba(183,110,121,0.25);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+/* ==========================================================================
+   2. RESET & BASE
+   ========================================================================== */
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--cream) 0%, var(--blush) 55%, var(--cream) 100%);
+  background-attachment: fixed;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; color:var(--ink); }
+.section-pad{ padding: 90px 6vw; }
+.eyebrow{
+  font-family: var(--font-body);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--rose-gold);
+  font-weight:600;
+  display:inline-block;
+  margin-bottom: 14px;
+}
+.eyebrow::before{
+  content:'';
+  display:inline-block;
+  width:26px; height:1px;
+  background: var(--gold);
+  margin-right:10px;
+  vertical-align:middle;
+}
+.section-title{
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 16px;
+}
+.section-sub{
+  color: var(--ink-soft);
+  max-width: 560px;
+  font-size: 0.98rem;
+  margin-bottom: 50px;
+}
+.center{ text-align:center; margin-left:auto; margin-right:auto; }
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior:auto !important; }
+}
+
+/* Reveal-on-scroll utility */
+.reveal{ opacity:0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.is-visible{ opacity:1; transform:none; }
+
+/* ==========================================================================
+   3. GLASSMORPHISM CARD BASE
+   ========================================================================== */
+.glass-card{
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ==========================================================================
+   4. LOGO (SVG rose icon + text)
+   ========================================================================== */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family: var(--font-display);
+  font-weight:600;
+  font-size:1.35rem;
+  color: var(--ink);
+  letter-spacing:0.5px;
+}
+.logo svg{ width:32px; height:32px; flex-shrink:0; }
+.logo .doll{ color: var(--rose-gold); font-style:italic; }
+
+/* ==========================================================================
+   5. NAVIGATION
+   ========================================================================== */
+.navbar{
+  position: fixed;
+  top:0; left:0; right:0;
+  z-index: 1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 16px 6vw;
+  background: rgba(253,248,242,0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,161,90,0.18);
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+.navbar.scrolled{ padding: 10px 6vw; box-shadow: 0 6px 20px rgba(183,110,121,0.12); }
+.nav-links{ display:flex; gap:34px; align-items:center; }
+.nav-links a{
+  font-size:0.88rem;
+  font-weight:500;
+  color: var(--ink);
+  position:relative;
+  padding: 4px 0;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute; left:0; bottom:-2px;
+  width:0; height:1.5px;
+  background: var(--rose-gold);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after{ width:100%; }
+.nav-cta{
+  background: linear-gradient(135deg, var(--rose-gold), var(--gold));
+  color:#fff !important;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight:600;
+  box-shadow: 0 6px 16px rgba(183,110,121,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.nav-cta:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(183,110,121,0.45); }
+.nav-cta::after{ display:none; }
+
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  width:26px;
+}
+.nav-toggle span{
+  height:2px; width:100%;
+  background: var(--ink);
+  border-radius:2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ==========================================================================
+   6. HERO SECTION
+   ========================================================================== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  padding: 140px 6vw 80px;
+  overflow:hidden;
+}
+.hero::before, .hero::after{
+  content:'';
+  position:absolute;
+  border-radius:50%;
+  filter: blur(60px);
+  opacity:0.5;
+  z-index:0;
+}
+.hero::before{
+  width:380px; height:380px;
+  background: var(--rose-gold-light);
+  top:-100px; left:-120px;
+  animation: float1 9s ease-in-out infinite;
+}
+.hero::after{
+  width:320px; height:320px;
+  background: var(--gold-soft);
+  bottom:-100px; right:-100px;
+  animation: float2 11s ease-in-out infinite;
+}
+@keyframes float1{ 0%,100%{ transform: translate(0,0);} 50%{ transform: translate(30px,25px);} }
+@keyframes float2{ 0%,100%{ transform: translate(0,0);} 50%{ transform: translate(-25px,-20px);} }
+
+.hero-content{ position:relative; z-index:2; max-width: 760px; }
+.hero-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:0.75rem; letter-spacing:2px; text-transform:uppercase;
+  color: var(--rose-gold); font-weight:600;
+  background: rgba(255,255,255,0.6);
+  padding: 8px 18px; border-radius:30px;
+  margin-bottom: 26px;
+  border: 1px solid rgba(201,161,90,0.3);
+}
+.hero h1{
+  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+  line-height:1.1;
+  margin-bottom: 22px;
+}
+.hero h1 em{
+  font-style:italic;
+  background: linear-gradient(135deg, var(--rose-gold), var(--gold));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero p{
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin: 0 auto 38px;
+}
+.hero-btns{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
+.btn{
+  padding: 15px 32px;
+  border-radius: 32px;
+  font-weight:600;
+  font-size:0.92rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.btn-primary{
+  background: linear-gradient(135deg, var(--rose-gold), var(--gold));
+  color:#fff;
+  box-shadow: 0 10px 24px rgba(183,110,121,0.4);
+}
+.btn-primary:hover{ transform: translateY(-3px); box-shadow: 0 14px 30px rgba(183,110,121,0.5); }
+.btn-secondary{
+  background: rgba(255,255,255,0.6);
+  color: var(--ink);
+  border: 1px solid rgba(201,161,90,0.4);
+}
+.btn-secondary:hover{ background:#fff; transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+
+/* ==========================================================================
+   7. SERVICES
+   ========================================================================== */
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 26px;
+}
+.service-card{
+  padding: 34px 26px;
+  text-align:center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  position:relative;
+}
+.service-card:hover{
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lift);
+  background: rgba(255,255,255,0.75);
+}
+.service-icon{
+  width:56px; height:56px;
+  margin: 0 auto 18px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:50%;
+  background: linear-gradient(135deg, var(--blush-deep), var(--gold-soft));
+  font-size:1.5rem;
+}
+.service-card h3{ font-size:1.25rem; margin-bottom:8px; }
+.service-card p{ font-size:0.85rem; color: var(--ink-soft); }
+
+/* ==========================================================================
+   8. GALLERY
+   ========================================================================== */
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  border-radius: var(--radius-md);
+  aspect-ratio: 1 / 1;
+  box-shadow: var(--shadow-soft);
+  background: linear-gradient(135deg, var(--blush-deep), var(--gold-soft));
+}
+.gallery-item img{
+  width:100%; height:100%;
+  object-fit:cover;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  opacity:0;
+}
+.gallery-item img.loaded{ opacity:1; }
+.gallery-item:hover img{ transform: scale(1.12); }
+.gallery-item::after{
+  content: attr(data-label);
+  position:absolute; inset:auto 0 0 0;
+  padding: 14px 12px 10px;
+  font-size:0.75rem;
+  letter-spacing:1px;
+  color:#fff;
+  background: linear-gradient(0deg, rgba(74,47,53,0.55), transparent);
+  opacity:0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.gallery-item:hover::after{ opacity:1; transform:none; }
+
+/* ==========================================================================
+   9. ABOUT
+   ========================================================================== */
+.about-wrap{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items:center;
+}
+.about-visual{
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, var(--blush-deep), var(--rose-gold-light) 60%, var(--gold-soft));
+  position:relative;
+  overflow:hidden;
+  box-shadow: var(--shadow-lift);
+}
+.about-visual::before{
+  content:'✦';
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:5rem; color: rgba(255,255,255,0.6);
+}
+.about-stats{
+  display:flex; gap:30px; margin-top:34px; flex-wrap:wrap;
+}
+.stat b{ font-family:var(--font-display); font-size:2rem; color:var(--rose-gold); display:block; }
+.stat span{ font-size:0.78rem; color:var(--ink-soft); letter-spacing:0.5px; text-transform:uppercase; }
+.about-text p{ margin-bottom:16px; color: var(--ink-soft); }
+
+/* ==========================================================================
+   10. CONTACT
+   ========================================================================== */
+.contact-wrap{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.contact-card{
+  padding: 40px;
+  display:flex;
+  align-items:center;
+  gap:22px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-lift); }
+.contact-icon{
+  width:54px; height:54px;
+  border-radius:50%;
+  background: linear-gradient(135deg, var(--rose-gold), var(--gold));
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  font-size:1.3rem;
+  color:#fff;
+}
+.contact-card h4{ font-size:1.1rem; margin-bottom:4px; }
+.contact-card p{ color: var(--ink-soft); font-size:0.92rem; }
+
+/* ==========================================================================
+   11. FLOATING WHATSAPP BUTTON
+   ========================================================================== */
+.whatsapp-float{
+  position: fixed;
+  bottom: 26px; right: 26px;
+  width:60px; height:60px;
+  border-radius:50%;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 10px 26px rgba(37,211,102,0.45);
+  z-index: 999;
+  animation: pulse 2.6s ease-in-out infinite;
+  transition: transform 0.25s ease;
+}
+.whatsapp-float:hover{ transform: scale(1.1); }
+.whatsapp-float svg{ width:30px; height:30px; }
+@keyframes pulse{
+  0%,100%{ box-shadow: 0 10px 26px rgba(37,211,102,0.45); }
+  50%{ box-shadow: 0 10px 34px rgba(37,211,102,0.7); }
+}
+
+/* ==========================================================================
+   12. FOOTER
+   ========================================================================== */
+footer{
+  background: linear-gradient(135deg, var(--ink) 0%, #5c3b42 100%);
+  color: rgba(255,255,255,0.85);
+  padding: 60px 6vw 26px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-grid h4{ color:#fff; margin-bottom:16px; font-size:1.05rem; }
+.footer-grid .logo{ color:#fff; }
+.footer-grid p{ font-size:0.85rem; color: rgba(255,255,255,0.65); max-width:280px; }
+.footer-links li{ margin-bottom:10px; }
+.footer-links a{ font-size:0.88rem; color: rgba(255,255,255,0.75); transition: color 0.2s ease, padding 0.2s ease; }
+.footer-links a:hover{ color: var(--gold-soft); padding-left:4px; }
+.social-row{ display:flex; gap:12px; margin-top:6px; }
+.social-row a{
+  width:38px; height:38px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.25);
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.9rem;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.social-row a:hover{ background: var(--rose-gold); transform: translateY(-3px); }
+.footer-bottom{
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 22px;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  font-size:0.8rem;
+  color: rgba(255,255,255,0.6);
+}
+.footer-bottom .heart{ color: var(--rose-gold-light); }
+
+/* ==========================================================================
+   13. RESPONSIVE — mobile first breakpoints
+   ========================================================================== */
+@media (max-width: 860px){
+  .about-wrap, .contact-wrap{ grid-template-columns:1fr; }
+  .about-visual{ order:-1; aspect-ratio: 16/10; }
+}
+@media (max-width: 720px){
+  .nav-links{
+    position:fixed; top:0; right:-100%;
+    height:100vh; width:min(78vw, 320px);
+    background: var(--cream);
+    flex-direction:column;
+    justify-content:center;
+    gap: 30px;
+    transition: right 0.4s ease;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+  }
+  .nav-links.open{ right:0; }
+  .nav-toggle{ display:flex; z-index:1001; }
+  .section-pad{ padding: 70px 6vw; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================================================
+     NAVIGATION
+     ========================================================================== -->
+<header class="navbar" id="navbar">
+  <a href="#home" class="logo" aria-label="Baby Doll Makeover home">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="24" cy="24" r="22" stroke="#c9a15a" stroke-width="1.2"/>
+      <path d="M24 14c2 4 6 5 8 8-2 3-6 4-8 8-2-4-6-5-8-8 2-3 6-4 8-8Z" fill="#b76e79"/>
+      <circle cx="24" cy="24" r="2.4" fill="#fdf8f2"/>
+    </svg>
+    Baby Doll <span class="doll">Makeover</span>
+  </a>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#book" class="nav-cta">Book Now</a>
+  </nav>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ==========================================================================
+     HERO
+     ========================================================================== -->
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="hero-badge">✦ Premium Beauty Studio · Sikar</span>
+    <h1>Reveal Your <em>Radiance</em><br>Beautifully, Effortlessly</h1>
+    <p>Where elegant styling, expert artistry, and gentle care come together — Baby Doll Makeover is Sikar's destination for every beauty ritual.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/919001612303?text=Hello%20Baby%20Doll%20Makeover,%20I%20would%20like%20to%20book%20an%20appointment." class="btn btn-primary" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4 0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.9 3.4.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+        Book on WhatsApp
+      </a>
+      <a href="#gallery" class="btn btn-secondary">View Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SERVICES
+     ========================================================================== -->
+<section class="section-pad" id="services">
+  <div class="center">
+    <span class="eyebrow">What We Offer</span>
+    <h2 class="section-title">Our Signature Services</h2>
+    <p class="section-sub center">A curated menu of hair, skin, and beauty rituals — tailored to make you feel effortlessly stunning.</p>
+  </div>
+
+  <div class="services-grid" id="servicesGrid"></div>
+</section>
+
+<!-- ==========================================================================
+     GALLERY
+     ========================================================================== -->
+<section class="section-pad" id="gallery">
+  <div class="center">
+    <span class="eyebrow">Portfolio</span>
+    <h2 class="section-title">Glimpses of Glamour</h2>
+    <p class="section-sub center">A look inside our studio — real transformations, real confidence.</p>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<!-- ==========================================================================
+     ABOUT
+     ========================================================================== -->
+<section class="section-pad" id="about">
+  <div class="about-wrap">
+    <div class="about-visual reveal"></div>
+    <div class="about-text reveal">
+      <span class="eyebrow">About Us</span>
+      <h2 class="section-title">Baby Doll Makeover</h2>
+      <p>Baby Doll Makeover is Sikar's premium beauty destination, built around one simple belief — every woman deserves to feel like her most radiant self. From bridal transformations to everyday grooming, our studio blends modern technique with an unhurried, personal touch.</p>
+      <p>Our expert stylists and makeup artists train continually to stay ahead of trends, while every tool and space is maintained to the highest standard of hygiene and care. We take pride in listening first, then creating a look that feels authentically you.</p>
+      <p>Step in for a quick touch-up or a full bridal experience — you'll leave feeling pampered, polished, and unmistakably beautiful.</p>
+      <div class="about-stats">
+        <div class="stat"><b>5+</b><span>Years of Artistry</span></div>
+        <div class="stat"><b>13</b><span>Signature Services</span></div>
+        <div class="stat"><b>1000+</b><span>Happy Clients</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CONTACT
+     ========================================================================== -->
+<section class="section-pad" id="contact">
+  <div class="center">
+    <span class="eyebrow">Get In Touch</span>
+    <h2 class="section-title">Visit or Reach Us</h2>
+    <p class="section-sub center">We'd love to welcome you. Call, message, or drop by our studio in Sikar, Rajasthan.</p>
+  </div>
+
+  <div class="contact-wrap">
+    <a href="tel:+919001612303" class="glass-card contact-card">
+      <div class="contact-icon">📞</div>
+      <div>
+        <h4>Call Us</h4>
+        <p>+91 90016 12303</p>
+      </div>
+    </a>
+    <a href="https://wa.me/919001612303?text=Hello%20Baby%20Doll%20Makeover,%20I%20would%20like%20to%20book%20an%20appointment." class="glass-card contact-card" target="_blank" rel="noopener" id="book">
+      <div class="contact-icon">💬</div>
+      <div>
+        <h4>WhatsApp</h4>
+        <p>+91 90016 12303</p>
+      </div>
+    </a>
+  </div>
+</section>
+</main>
+
+<!-- ==========================================================================
+     FLOATING WHATSAPP BUTTON
+     ========================================================================== -->
+<a href="https://wa.me/919001612303?text=Hello%20Baby%20Doll%20Makeover,%20I%20would%20like%20to%20book%20an%20appointment." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4 0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.9 3.4.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" stroke="#e8d4a9" stroke-width="1.2"/>
+          <path d="M24 14c2 4 6 5 8 8-2 3-6 4-8 8-2-4-6-5-8-8 2-3 6-4 8-8Z" fill="#d99aa6"/>
+          <circle cx="24" cy="24" r="2.4" fill="#fdf8f2"/>
+        </svg>
+        Baby Doll <span class="doll">Makeover</span>
+      </div>
+      <p>A premium beauty studio in Sikar, Rajasthan — devoted to elegance, hygiene, and artistry in every service.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li>Sikar, Rajasthan</li>
+        <li>Phone: +91 90016 12303</li>
+        <li>WhatsApp: +91 90016 12303</li>
+        <li>Open Daily · 10 AM – 8 PM</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <div class="social-row">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> Baby Doll Makeover. All rights reserved.</span>
+    <span>Designed with <span class="heart">❤</span></span>
+  </div>
+</footer>
+
+<!-- ==========================================================================
+     JAVASCRIPT — vanilla only, no dependencies
+     ========================================================================== -->
+<script>
+(function(){
+  "use strict";
+
+  /* ---- 1. Sticky nav shrink + mobile toggle ---- */
+  var navbar = document.getElementById('navbar');
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+
+  window.addEventListener('scroll', function(){
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  navToggle.addEventListener('click', function(){
+    var isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  navLinks.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* ---- 2. Services data (name, icon) rendered into grid ---- */
+  var services = [
+    { name: 'Hair Styling',  icon: '💇‍♀️', desc: 'Blow-dry, ironing & elegant updos.' },
+    { name: 'Hair Spa',      icon: '🧴', desc: 'Deep nourishment & scalp therapy.' },
+    { name: 'Hair Coloring', icon: '🎨', desc: 'Global colour, highlights & balayage.' },
+    { name: 'Bridal Makeup', icon: '👰', desc: 'Flawless looks for your big day.' },
+    { name: 'Party Makeup',  icon: '💄', desc: 'Glam finishes for every celebration.' },
+    { name: 'HD Makeup',     icon: '✨', desc: 'Camera-ready, long-lasting radiance.' },
+    { name: 'Facial',        icon: '🌸', desc: 'Glow-boosting, skin-specific facials.' },
+    { name: 'Cleanup',       icon: '🧼', desc: 'Quick refresh for instant brightness.' },
+    { name: 'Waxing',        icon: '🪄', desc: 'Smooth, gentle full-body waxing.' },
+    { name: 'Threading',     icon: '🪡', desc: 'Precise brow & face shaping.' },
+    { name: 'Manicure',      icon: '💅', desc: 'Nourished, polished hands.' },
+    { name: 'Pedicure',      icon: '🦶', desc: 'Relaxing soak & foot pampering.' },
+    { name: 'Nail Art',      icon: '🎀', desc: 'Custom designs, gems & gel finish.' }
+  ];
+
+  var servicesGrid = document.getElementById('servicesGrid');
+  var serviceHTML = services.map(function(s){
+    return '<div class="glass-card service-card reveal">' +
+             '<div class="service-icon" aria-hidden="true">' + s.icon + '</div>' +
+             '<h3>' + s.name + '</h3>' +
+             '<p>' + s.desc + '</p>' +
+           '</div>';
+  }).join('');
+  servicesGrid.innerHTML = serviceHTML;
+
+  /* ---- 3. Gallery: auto-generate 20 placeholder images with lazy loading ---- */
+  var galleryGrid = document.getElementById('galleryGrid');
+  var galleryHTML = '';
+  for (var i = 1; i <= 20; i++){
+    galleryHTML +=
+      '<div class="gallery-item reveal" data-label="Baby Doll Makeover">' +
+        '<img src="images/image' + i + '.jpg" ' +
+             'alt="Baby Doll Makeover salon photo ' + i + '" ' +
+             'loading="lazy" ' +
+             'onload="this.classList.add(\'loaded\')" ' +
+             'onerror="this.closest(\'.gallery-item\').style.background=\'linear-gradient(135deg,#f0c9d3,#e8d4a9)\'; this.remove();">' +
+      '</div>';
+  }
+  galleryGrid.innerHTML = galleryHTML;
+
+  /* ---- 4. Scroll-reveal animation via IntersectionObserver ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el){ observer.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ---- 5. Footer year ---- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>
